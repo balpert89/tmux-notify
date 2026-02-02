@@ -3,13 +3,13 @@
 
 ## Main variables
 if [[ -z $XDG_CACHE_HOME ]]; then
-  export PID_DIR=~/.tmux/notify
+    export PID_DIR=~/.tmux/notify
 else
-  export PID_DIR="$XDG_CACHE_HOME/tmux/tmux-notify"
+    export PID_DIR="$XDG_CACHE_HOME/tmux/tmux-notify"
 fi
 
 # Get ID's
-export SESSION_ID=$(tmux display-message -p '#{session_id}'  | tr -d $)
+export SESSION_ID=$(tmux display-message -p '#{session_id}' | tr -d $)
 export WINDOW_ID=$(tmux display-message -p '#{window_id}' | tr -d @)
 export PANE_ID=$(tmux display-message -p '#{pane_id}' | tr -d %)
 export PID_FILE_PATH="${PID_DIR}/${PANE_ID}.pid"
